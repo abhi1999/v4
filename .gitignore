@@ -1,0 +1,15 @@
+/node_modules
+src/*.js.map
+src/*.js
+src/*/*.js.map
+src/*/*.js
+src/*/*/*.js.map
+src/*/*/*.js
+!src/settings.js
+!package.json
+build/
+.openode
+/build
+/dist
+/coverage
+junit.xml
