@@ -15,14 +15,12 @@ import 'simple-line-icons/css/simple-line-icons.css';
 // Import Main styles for this application
 import './../styles/vendor.css'
 
+import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle, Container } from 'reactstrap';
 
-import TLEMain from './tle-main/TLEMain';
-import Sidebar from './tle-sidebar/Sidebar';
-import TLEDetails from "./tle-details/TLEDetails";
+import DefaultLayout from "./layouts/DefaultLayout"
 
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import {BrowserRouter as Router, HashRouter, Link, Route, Switch} from "react-router-dom";
 
-import TLEGridContainer from "./../containers/tle/TLEGridContainer"
 
 declare let Settings:any;
 interface IAppProps{
@@ -51,28 +49,20 @@ export default class App extends React.Component<IAppProps, any>{
         }
         console.log('APP', this.props)
         return (
-            <Router>
-                <div id="wrapper" className="toggled">
-                    <Sidebar/>
-                    <div id="page-content-wrapper">
-                        <div className="container-fluid">
-                            <Route exact={true} path="/" render={()=>{
-                                return <TLEMain title={Settings.appTitle}/>
-                            }}/>
-                            <Route exact={true} path="/home" render={()=>{
-                                return <TLEMain title={Settings.appTitle}/>
-                            }}/>
-                            <Route exact={true} path="/tlegrid" render={()=>{
-                                return <TLEGridContainer/>
-                            }}/>
-                            <Route exact={true} path="/details/:poOrderNumber" render={({match})=>{
-                                return <TLEDetails title={Settings.appTitle}/>
-                            }}/>
-                        </div>
-                    </div>
-                    <Notifications notifications={this.props.notifications} style={defaultStyle} />
-                </div>
-            </Router>
+            <div id="wrapper" className="toggled">
+                <HashRouter>
+                    <Switch>
+                            <Route path='/page' render={(props) => (
+                                <div>page</div>
+                                )}/>
+                            <Route path="/home" name="Home" render={(props) => (
+                                <div>Home</div>
+                                )}/>
+                            <Route path="/" name="default" component={DefaultLayout}/>
+                        </Switch>
+                </HashRouter>
+                <Notifications notifications={this.props.notifications} style={defaultStyle} />
+            </div>
         );
     }
 }

@@ -11,15 +11,15 @@ export default class TLEDetails extends React.Component<ITLEDetailsProps, any> {
     public render() {
         return (
             <Card>
-                <CardHeader>{this.props.title}</CardHeader>
+                <CardHeader>Component Development in Progres</CardHeader>
                 <CardBody>
                     <CardTitle></CardTitle>
                     <CardSubtitle></CardSubtitle>
                     <div>
-                      Details will go heres
+                      In Progress
                     </div>
                 </CardBody>
-                <CardFooter>Powered by Data Masons Software </CardFooter>
+                <CardFooter> </CardFooter>
           </Card>);
     }
 }
