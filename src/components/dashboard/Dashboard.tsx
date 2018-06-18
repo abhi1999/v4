@@ -98,6 +98,18 @@ export default class Dashboard extends React.Component<any, any> {
            <Row>
                 <Col xs="12" sm="6" lg="3">
                     <Card className="text-white bg-primary">
+                        <CardBody className="pb-0"> 
+                            <ButtonGroup className="float-right">
+                            <Dropdown id='card2' isOpen={this.state.card2} toggle={() => { this.setState({ card2: !this.state.card2 }); }}>
+                                <DropdownToggle className="p-0" color="transparent">
+                                    <i className="icon-location-pin"></i>
+                                </DropdownToggle>
+                            </Dropdown>
+                            </ButtonGroup>
+
+                            <div className="text-value">9.823</div>
+                            <div>Members online</div>
+                        </CardBody>
                         <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
                             <Line data={cardChartData1} options={cardChartOpts1} height={70} />
                         </div>
